@@ -1,8 +1,20 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:nnhouse_web/constant.dart';
 import 'package:nnhouse_web/screens/home/home_screen.dart';
 
 void main() {
+  /**
+   * Register font license
+   * https://pub.dev/packages/google_fonts
+   */
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('google_fonts/OFL.txt');
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
+
   runApp(MyApp());
 }
 
@@ -15,16 +27,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: kPrimaryColor,
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+        accentColor: kAccentColor,
+        brightness: Brightness.light,
+        fontFamily: GoogleFonts.openSans().fontFamily,
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor, displayColor: kAccentColor)
       ),
       home: HomeScreen(),
     );

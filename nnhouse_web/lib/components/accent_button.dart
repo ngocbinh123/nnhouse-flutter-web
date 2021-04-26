@@ -19,7 +19,7 @@ class AccentButton extends StatelessWidget {
             padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
                 EdgeInsets.symmetric(horizontal: space30, vertical: space20)),
             backgroundColor: MaterialStateProperty.all<Color>(kAccentColor),
-            foregroundColor: MaterialStateProperty.all<Color>(kTextcolor)),
+            foregroundColor: MaterialStateProperty.all<Color>(kTextColor)),
       ),
     );
   }

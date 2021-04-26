@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:nnhouse_web/constant.dart';
 import 'package:nnhouse_web/data/product.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class ProductsContainer extends StatelessWidget {
   final List<Product> products;
   const ProductsContainer({required this.products});
+
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 4,
-      crossAxisSpacing: space20,
-      mainAxisSpacing: space40,
-      children: getProductWidgetList(context),
+    var count = kIsWeb ? 4 : 2;
+    return SliverGrid(
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: count),
+      delegate: SliverChildBuilderDelegate(
+        (BuildContext context, int index) {
+          return getProductWidget(context, products[index]);
+        },
+        childCount: products.length,
+      ),
     );
   }
 
@@ -20,24 +27,39 @@ class ProductsContainer extends StatelessWidget {
   }
 
   Widget getProductWidget(BuildContext context, Product p) {
-    var priceStyle = Theme.of(context)
-        .textTheme
-        .headline5!
-        .copyWith(color: Colors.black, fontWeight: FontWeight.bold);
-    var nameStyle =
-        Theme.of(context).textTheme.headline6!.copyWith(color: kPrimaryColor);
+    return Container(
+      padding: EdgeInsets.all(space10),
+      width: double.maxFinite,
+      child: Card(
+        elevation: 4,
+        child: getBodyContainer(context, p),
+      ),
+    );
+  }
+
+  Widget getBodyContainer(BuildContext context, Product p) {
+    var priceStyle = Theme.of(context).textTheme.headline6!
+        .copyWith(fontWeight: FontWeight.w600);
+    var nameStyle = Theme.of(context).textTheme.headline6!;
+    var borderCorner = Radius.circular(radius16);
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.asset("assets/images/product_2.jpg"),
-        Text(
-          "4,999,000 VND",
-          style: priceStyle,
+        Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(topLeft: borderCorner, topRight: borderCorner),
+              child: Image.asset("assets/images/product_2.jpg"),
+            )
         ),
-        Text(
-          p.name,
-          style: nameStyle,
-        )
+        Padding(
+            padding: EdgeInsets.only(left: space20, top: space20, bottom: space10),
+            child: Text(p.name, style: nameStyle)
+        ),
+        Padding(
+            padding: EdgeInsets.only(left: space20, bottom: space20),
+            child: Text("4,999,000 vnd", style: priceStyle)
+        ),
       ],
     );
   }
