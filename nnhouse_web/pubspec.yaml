@@ -31,10 +31,21 @@ dependencies:
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.0.0-nullsafety.0
   google_fonts: ^2.0.0
+  responsive_builder: ^0.4.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.9.0
+
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "assets/launcher/ic_launcher.png"
+  image_path_android: "assets/launcher/ic_launcher.png"
+  adaptive_icon_background: "assets/launcher/background.png"
+  adaptive_icon_foreground: "assets/launcher/foreground.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

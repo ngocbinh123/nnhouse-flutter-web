@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:nnhouse_web/constant.dart';
 import 'package:nnhouse_web/data/product.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 
-class ProductsContainer extends StatelessWidget {
+import '../../constant.dart';
+
+class ProductsContainerContentLine extends StatelessWidget {
   final List<Product> products;
-  const ProductsContainer({required this.products});
+
+  const ProductsContainerContentLine({required this.products});
 
   @override
   Widget build(BuildContext context) {
-    var count = kIsWeb ? 4 : 2;
-    return SliverGrid(
-      gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: count),
-      delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int index) {
-          return getProductWidget(context, products[index]);
-        },
-        childCount: products.length,
-      ),
-    );
+    return Container();
+    // return SliverGrid(
+    //   gridDelegate:
+    //       SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
+    //   delegate: SliverChildBuilderDelegate(
+    //     (BuildContext context, int index) {
+    //       return getProductWidget(context, products[index]);
+    //     },
+    //     childCount: products.length,
+    //   ),
+    // );
   }
 
   List<Widget> getProductWidgetList(BuildContext context) {
@@ -38,7 +39,9 @@ class ProductsContainer extends StatelessWidget {
   }
 
   Widget getBodyContainer(BuildContext context, Product p) {
-    var priceStyle = Theme.of(context).textTheme.headline6!
+    var priceStyle = Theme.of(context)
+        .textTheme
+        .headline6!
         .copyWith(fontWeight: FontWeight.w600);
     var nameStyle = Theme.of(context).textTheme.headline6!;
     var borderCorner = Radius.circular(radius16);
@@ -48,18 +51,17 @@ class ProductsContainer extends StatelessWidget {
       children: [
         Expanded(
             child: ClipRRect(
-              borderRadius: BorderRadius.only(topLeft: borderCorner, topRight: borderCorner),
-              child: Image.asset("assets/images/product_2.jpg"),
-            )
-        ),
+          borderRadius:
+              BorderRadius.only(topLeft: borderCorner, topRight: borderCorner),
+          child: Image.asset("assets/images/product_2.jpg"),
+        )),
         Padding(
-            padding: EdgeInsets.only(left: space20, top: space20, bottom: space10),
-            child: Text(p.name, style: nameStyle)
-        ),
+            padding:
+                EdgeInsets.only(left: space20, top: space20, bottom: space10),
+            child: Text(p.name, style: nameStyle)),
         Padding(
             padding: EdgeInsets.only(left: space20, bottom: space20),
-            child: Text("4,999,000 vnd", style: priceStyle)
-        ),
+            child: Text("4,999,000 vnd", style: priceStyle)),
       ],
     );
   }

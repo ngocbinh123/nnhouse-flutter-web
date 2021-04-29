@@ -30,8 +30,9 @@ const double textSizeOfAppName = 32.0;
 
 const sizeIcon32 = 32.0;
 
-const appName = "NN Home";
-const companyName = "Công ty TNHH NN House";
+const appName = "NN 1 Home";
+const domain = "nn1home.com";
+const companyName = "Công ty TNHH NN 1 Home";
 const bestPrice = "Giá Tốt";
 const menShoes = "Giày Nam";
 const womenShoes = "Giày Nữ";
