@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:nnhouse_web/res/colors.dart';
 
 import '../constant.dart';
 
 class AccentButton extends StatelessWidget {
   final String name;
   final VoidCallback press;
+
   const AccentButton({required this.name, required this.press});
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(

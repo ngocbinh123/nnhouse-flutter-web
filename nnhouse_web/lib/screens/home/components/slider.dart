@@ -1,7 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:nnhouse_web/base/base_stateless_widget.dart';
 
-class HomeSlider extends StatelessWidget {
+class Slider extends BaseStatelessWidget {
+  final GlobalKey uniqueKey = GlobalKey(debugLabel: "______SLIDER______");
+
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(

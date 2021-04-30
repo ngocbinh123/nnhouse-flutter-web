@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 /// color scheme:
 /// refs: https://www.pinterest.com/pin/543387511296543903/
-const kPrimaryColor = Color(0xFF1F4762);
-const kPrimaryDarkColor =Color(0xFF153040);
-const kAccentColor = Color(0xFFFDA300);
-const kAccentLightColor = Color(0xFFFFC619);
-
-const kTextColor = Color(0xFF182833);
-const kDarkButton = Color(0xFF372930);
+// const kPrimaryColor = Color(0xFF1F4762);
+// const kPrimaryDarkColor =Color(0xFF153040);
+// const kAccentColor = Color(0xFFFDA300);
+// const kAccentLightColor = Color(0xFFFFC619);
+//
+// const kTextColor = Color(0xFF182833);
+// const kDarkButton = Color(0xFF372930);
 /// end of color scheme
 
 /// padding or Margin
@@ -28,6 +28,7 @@ const double textSizeOfMenuItem = 14.0;
 const double textSizeOfAppName = 32.0;
 /// end of text size
 
+const sizeIcon24 = 24.0;
 const sizeIcon32 = 32.0;
 
 const appName = "NN 1 Home";

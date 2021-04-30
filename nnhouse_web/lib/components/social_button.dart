@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:nnhouse_web/data/social_type.dart';
+
 import '../constant.dart';
 
 class SocialButton extends StatelessWidget {
+  final color = Colors.white.withOpacity(0.8);
   final SocialType type;
 
-  const SocialButton({required this.type});
+  SocialButton({required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -20,33 +22,20 @@ class SocialButton extends StatelessWidget {
 
   Widget getLabel(BuildContext context) {
     var contentStyle =
-        Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white60);
+        Theme.of(context).textTheme.headline6!.copyWith(color: color);
     String content = "";
     switch (type) {
-      case SocialType.FACEBOOK:
-        {
-          content = "https://www.facebook.com/";
-        }
+      case SocialType.FACEBOOK: content = "www.facebook.com";
         break;
-      case SocialType.ZALO:
-        {
-          content = "https://chat.zalo.me/";
-        }
+      case SocialType.ZALO: content = "chat.zalo.me";
         break;
-      case SocialType.PHONE:
-        {
-          content = "0931812831";
-        }
+      case SocialType.PHONE: content = "0931812831";
         break;
-      case SocialType.EMAIL:
-        {
-          content = "nnhome@gmail.com";
-        }
+      case SocialType.EMAIL: content = "nnhome@gmail.com";
         break;
-      case SocialType.ADDRESS:
-        {
-          content = "Hồ Chí Minh";
-        }
+      case SocialType.ADDRESS: content = "Hồ Chí Minh";
+        break;
+      default: content = "";
         break;
     }
     return Text(
@@ -83,11 +72,13 @@ class SocialButton extends StatelessWidget {
           iconData = Icons.location_city;
         }
         break;
+      default: iconData = Icons.align_horizontal_left_rounded;
+      break;
     }
     return Icon(
       iconData,
-      color: Colors.white60,
-      size: sizeIcon32,
+      color: color,
+      size: sizeIcon24,
     );
   }
 }

@@ -4,4 +4,5 @@ enum SocialType {
   EMAIL,
   PHONE,
   ADDRESS,
+  BLANK,
 }

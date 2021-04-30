@@ -2,26 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:nnhouse_web/components/social_button.dart';
 import 'package:nnhouse_web/constant.dart';
 import 'package:nnhouse_web/data/social_type.dart';
+import 'package:nnhouse_web/res/colors.dart';
 
 class Footer extends StatelessWidget {
+  final int partSize = 2;
   Color headerColor = Colors.white;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: kPrimaryDarkColor,
-      height: 200,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          getBranchInfo(context),
-          Padding(
-            padding: EdgeInsets.only(left: space40),
-            child: getSocialNetworks(context),
-          )
-        ],
-      ),
+      child: getBody(context),
     );
+  }
+
+  Widget getBody(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth > 750) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [getBranchInfo(context), getSocialNetworks(context)],
+      );
+    } else {
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [getBranchInfo(context), getSocialNetworks(context)],
+      );
+    }
   }
 
   Widget getSocialNetworks(BuildContext context) {
@@ -29,18 +36,25 @@ class Footer extends StatelessWidget {
         .textTheme
         .headline5!
         .copyWith(color: headerColor, fontWeight: FontWeight.w500);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-            padding: EdgeInsets.symmetric(vertical: space24),
-            child: Text(
-              connectWithUs,
-              style: headerStyle,
-            )),
-        SocialButton(type: SocialType.FACEBOOK),
-        SocialButton(type: SocialType.ZALO)
-      ],
+
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: space30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+              padding: EdgeInsets.symmetric(vertical: space24),
+              child: Text(
+                "$connectWithUs        ",
+                style: headerStyle,
+              )),
+          SocialButton(type: SocialType.FACEBOOK),
+          SocialButton(type: SocialType.ZALO),
+          Padding(
+              padding: EdgeInsets.symmetric(vertical: space10),
+              child: Text("")),
+        ],
+      ),
     );
   }
 
@@ -48,14 +62,14 @@ class Footer extends StatelessWidget {
     var headerStyle = Theme.of(context)
         .textTheme
         .headline5!
-        .copyWith(color: headerColor, fontWeight: FontWeight.w500);
+        .copyWith(color: headerColor, fontWeight: FontWeight.w400);
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: space20),
+      padding: EdgeInsets.symmetric(horizontal: space30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-              padding: EdgeInsets.symmetric(vertical: space20),
+              padding: EdgeInsets.symmetric(vertical: space24),
               child: Text(
                 companyName,
                 style: headerStyle,
