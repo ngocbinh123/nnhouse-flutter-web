@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:nnhouse_web/base/base_stateless_widget.dart';
 
-class Slider extends BaseStatelessWidget {
+class BannerSlider extends BaseStatelessWidget {
   final GlobalKey uniqueKey = GlobalKey(debugLabel: "______SLIDER______");
 
   @override

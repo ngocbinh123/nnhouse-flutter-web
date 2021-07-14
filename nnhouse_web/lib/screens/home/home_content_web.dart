@@ -11,6 +11,11 @@ class HomeContentWeb extends StatefulWidget {
 
 class _HomeContentWebState extends BaseHomeContentsState<HomeContentWeb> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(

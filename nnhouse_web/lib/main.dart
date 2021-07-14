@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nnhouse_web/constant.dart';
 import 'package:nnhouse_web/screens/home/home_screen.dart';
 
+import 'components/loading_widget.dart';
 import 'res/colors.dart';
 
 void main() {
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
   }
 
   Widget loading(BuildContext context) {
-    return CircularProgressIndicator();
+    return LoadingWidget();
   }
 
   Widget getAppBody(BuildContext context) {

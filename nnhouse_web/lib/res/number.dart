@@ -1,0 +1,1 @@
+const minHeightOfContainer = 100.0;
